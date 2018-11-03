@@ -76,3 +76,5 @@ Railcraft is licensed under a custom usage license tailored specifically for the
   * You may **NOT** use Railcraft Art Assets in other projects **unless** the project is intended to operate alongside Railcraft. Examples are Addons, Resource Packs and InterMod Integration.
   * You **MAY** fork and edit the Github Project for the purpose of contributing to the Official Railcraft Project. You may **NOT** distribute any Jar created from a fork for any reason.
   * All contributions to the Official Railcraft Project must be covered by a Contributor Licensing Agreement signed by the contributor.
+
+Muhammed Emre Durdu 161101007
