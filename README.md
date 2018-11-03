@@ -78,5 +78,7 @@ Railcraft is licensed under a custom usage license tailored specifically for the
   * All contributions to the Official Railcraft Project must be covered by a Contributor Licensing Agreement signed by the contributor.
 
 Muhammed Emre Durdu 161101007
-  Semih ÇATAL 161101011
+
+Semih ÇATAL 161101011
+
 Caner Çoban 161101038
