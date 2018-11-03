@@ -77,8 +77,6 @@ Railcraft is licensed under a custom usage license tailored specifically for the
   * You **MAY** fork and edit the Github Project for the purpose of contributing to the Official Railcraft Project. You may **NOT** distribute any Jar created from a fork for any reason.
   * All contributions to the Official Railcraft Project must be covered by a Contributor Licensing Agreement signed by the contributor.
 
-<<<<<<< HEAD
 Muhammed Emre Durdu 161101007
-=======
   Semih ÇATAL 161101011
->>>>>>> 5cd5eda2868226c26b89eccae763ce12f07c8ceb
+Caner Çoban 161101038
