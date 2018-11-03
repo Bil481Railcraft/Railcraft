@@ -82,3 +82,5 @@ Muhammed Emre Durdu 161101007
 Semih ÇATAL 161101011
 
 Caner Çoban 161101038
+
+Deniz Gümüş 161101056
