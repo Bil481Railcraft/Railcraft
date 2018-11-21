@@ -111,7 +111,8 @@ dependencies {
     // JEI
     deobfProvided "mezz.jei:jei_${project.version_minecraft}:${project.version_jei}"
     // annotations
-    compileOnly "org.jetbrains:annotations:16.0.2"
+    compile "org.jetbrains:annotations:16.0.2"
+    compile 'com.intellij:annotations:+@jar'
     // libs folder in case
     compile fileTree(dir: 'lib', include: '*.jar')
 }
