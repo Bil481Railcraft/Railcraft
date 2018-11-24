@@ -46,7 +46,7 @@ import java.io.File;
 @SuppressWarnings("unused")
 @Mod(modid = Railcraft.MOD_ID, name = Railcraft.NAME,
         version = Railcraft.VERSION,
-        certificateFingerprint = "a0c255ac501b2749537d5824bb0f0588bf0320fa",
+       // certificateFingerprint = "a0c255ac501b2749537d5824bb0f0588bf0320fa",
         acceptedMinecraftVersions = Railcraft.MC_VERSION,
         guiFactory = "mods.railcraft.client.core.RailcraftGuiConfigFactory",
         updateJSON = "http://www.railcraft.info/railcraft_versions",
