@@ -96,8 +96,14 @@ public class CrowbarHandler {
                     LinkageManager.printDebug("Reason For Broken Link: User removed link.");
                 } else {
                     used = lm.createLink(last, cart);
-                    if (used)
+                    if (used){
                         ChatPlugin.sendLocalizedHotBarMessageFromServer(player, "gui.railcraft.link.created");
+                        float lateral = cart.getMaxSpeedAirLateral();
+                        float vertical = cart.getMaxSpeedAirVertical();
+                        cart.setMaxSpeedAirLateral((lateral - 1));
+                        cart.setMaxSpeedAirVertical((vertical - 1));
+
+                    }
                 }
                 if (!used)
                     ChatPlugin.sendLocalizedHotBarMessageFromServer(player, "gui.railcraft.link.failed");
