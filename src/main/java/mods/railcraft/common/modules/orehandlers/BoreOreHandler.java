@@ -31,5 +31,4 @@ public class BoreOreHandler {
                 Game.log(Level.DEBUG, "Automation Module: Ore Tag Detected, adding to blocks Tunnel Bore can mine: {0}", oreClass);
         }
     }
-
 }

@@ -9,6 +9,7 @@
  -----------------------------------------------------------------------------*/
 package mods.railcraft.common.carts;
 
+import java.util.Random;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import mods.railcraft.api.carts.CartToolsAPI;
@@ -70,6 +71,7 @@ import java.util.function.BiFunction;
 import static mods.railcraft.common.util.inventory.InvTools.isEmpty;
 
 public class EntityTunnelBore extends CartBaseContainer implements ILinkableCart {
+    public static final int DIAMOND_LUCK = 5;
     public static final float SPEED = 0.03F;
     public static final float LENGTH = 6.2f;
     public static final float WIDTH = 3f;
@@ -872,6 +874,12 @@ public class EntityTunnelBore extends CartBaseContainer implements ILinkableCart
                     Vec3d spewPos = getPositionAhead(-3.2);
                     spewPos.addVector(xr, 0.3 + yr, zr);
                     EntityItem entityitem = new EntityItem(world, spewPos.xCoord, spewPos.yCoord, spewPos.zCoord, stack);
+                    int random = (int)(Math.random() * 1000 + 1);
+                    if(random <= DIAMOND_LUCK) {
+                    	ItemStack s = new ItemStack(Blocks.DIAMOND_BLOCK);
+                        EntityItem e = new EntityItem(world, spewPos.xCoord, spewPos.yCoord, spewPos.zCoord, s);
+                        world.spawnEntity(e);
+                    }
                     world.spawnEntity(entityitem);
                 }
             }
