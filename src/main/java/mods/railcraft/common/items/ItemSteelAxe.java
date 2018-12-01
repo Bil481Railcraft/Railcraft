@@ -23,12 +23,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public class ItemSteelAxe extends ItemAxe implements IRailcraftItemSimple {
-
+    int deniz = (int)(Math.random() * 10 + 1);
     public ItemSteelAxe() {
+        //int deniz = (int)(Math.random() * 10 + 1);
+        // try to change the damages for all items but constructor problem occurs
         super(ItemMaterials.STEEL_TOOL, 8F, -3F);
         setCreativeTab(CreativePlugin.RAILCRAFT_TAB);
     }
-
+    
     @Override
     public Item getObject() {
         return this;
