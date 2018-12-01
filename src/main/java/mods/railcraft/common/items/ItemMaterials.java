@@ -33,7 +33,8 @@ public class ItemMaterials {
             CROWBAR.addAttribute(Material.IRON, Attribute.ATTACK_DAMAGE, 2.5F);
 
             CROWBAR.addAttribute(Material.IRON, Attribute.ATTACK_SPEED, -2.8F);
-            CROWBAR.addAttribute(Material.STEEL, Attribute.ATTACK_SPEED, -2.7F);
+            CROWBAR.addAttribute(Material.STEEL, Attribute.ATTACK_SPEED, -3.5F);
+            //change damage and build
             CROWBAR.addAttribute(Material.THAUMIUM, Attribute.ATTACK_SPEED, -2.6F);
             CROWBAR.addAttribute(Material.VOID, Attribute.ATTACK_SPEED, -2.5F);
             CROWBAR.addAttribute(Material.DIAMOND, Attribute.ATTACK_SPEED, -2.4F);
@@ -78,8 +79,8 @@ public class ItemMaterials {
         ATTACK_SPEED,
         ATTACK_DAMAGE
     }
-
-    public static ToolMaterial STEEL_TOOL = EnumHelper.addToolMaterial("RAILCRAFT_STEEL", 2, 500, 7, 2.5F, 9);
+    //change damage and build
+    public static ToolMaterial STEEL_TOOL = EnumHelper.addToolMaterial("RAILCRAFT_STEEL", 2, 500, 7, 11F, 9);
     public static ToolMaterial DUMMY = EnumHelper.addToolMaterial("DUMMY", 0, 0, 0, 0, 0);
 
     //TODO: texture?
