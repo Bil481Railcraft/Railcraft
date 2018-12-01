@@ -201,7 +201,7 @@ public class LinkageManager implements ILinkageManager {
             setLink(cart2, cart1);
 
             train.rebuild(cart1);
-
+            //rebuild
             if (cart1 instanceof ILinkableCart)
                 ((ILinkableCart) cart1).onLinkCreated(cart2);
             if (cart2 instanceof ILinkableCart)
@@ -256,6 +256,16 @@ public class LinkageManager implements ILinkageManager {
         UUID id = getLinkageId(cart2);
         cart1.getEntityData().setLong(linkType.tagHigh, id.getMostSignificantBits());
         cart1.getEntityData().setLong(linkType.tagLow, id.getLeastSignificantBits());
+        /*
+        float c1 = cart1.getMaxCartSpeedOnRail();
+        float c2 = cart2.getMaxCartSpeedOnRail();
+        float newSpeed = 0;
+        if( c1 > c2) 
+            newSpeed = c2 - (float)0.5;
+        else
+            newSpeed = c1 - (float)0.5;
+
+        */
     }
 
     /**
@@ -445,6 +455,7 @@ public class LinkageManager implements ILinkageManager {
     @Override
     public int countCartsInTrain(EntityMinecart cart) {
         return Train.getTrain(cart).size();
+        // tren ustundeki kart sayisi.
     }
 
     private int numLinkedCarts(EntityMinecart prev, EntityMinecart next) {

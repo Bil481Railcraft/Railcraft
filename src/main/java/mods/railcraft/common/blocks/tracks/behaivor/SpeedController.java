@@ -101,6 +101,7 @@ public enum SpeedController {
     };
 
     public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos, @Nullable TrackKit trackKit) {
+        //yeni cart gelirse
     }
 
     @Nullable
