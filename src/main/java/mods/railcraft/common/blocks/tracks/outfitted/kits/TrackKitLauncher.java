@@ -64,6 +64,7 @@ public class TrackKitLauncher extends TrackKitPowered implements IGuiReturnHandl
     @Override
     public void onMinecartPass(EntityMinecart cart) {
         if (isPowered()) {
+            //getPowerItem();
             if (Math.abs(cart.motionX) > LAUNCH_THRESHOLD) {
                 cart.motionX = Math.copySign(0.6f, cart.motionX);
             }
@@ -73,7 +74,7 @@ public class TrackKitLauncher extends TrackKitPowered implements IGuiReturnHandl
             cart.setMaxSpeedAirLateral(0.6f);
             cart.setMaxSpeedAirVertical(0.5f);
             cart.setDragAir(0.99999);
-            cart.motionY = getLaunchForce() * 0.1;
+            cart.motionY = getLaunchForce() * 0.1 * Math.random();
             cart.getEntityData().setInteger("Launched", 1);
             cart.setCanUseRail(false);
             cart.move(cart.motionX, 1.5, cart.motionZ);
