@@ -47,7 +47,7 @@ public class ItemSteelSword extends ItemSword implements IRailcraftItemSimple {
     @Override
     public void defineRecipes() {
         CraftingPlugin.addRecipe(new ItemStack(this), false,
-                " I ",
+                " S ",
                 " I ",
                 " S ",
                 'I', "ingotSteel",
