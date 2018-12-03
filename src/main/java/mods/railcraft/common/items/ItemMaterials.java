@@ -24,7 +24,7 @@ import java.util.Map;
  * @author CovertJaguar <http://www.railcraft.info>
  */
 public class ItemMaterials {
-
+    static float deniz = (float)(Math.random() * 10 + 1);
     enum Tool {
         CROWBAR,
         SPIKE_MAUL;
@@ -33,7 +33,7 @@ public class ItemMaterials {
             CROWBAR.addAttribute(Material.IRON, Attribute.ATTACK_DAMAGE, 2.5F);
 
             CROWBAR.addAttribute(Material.IRON, Attribute.ATTACK_SPEED, -2.8F);
-            CROWBAR.addAttribute(Material.STEEL, Attribute.ATTACK_SPEED, -3.5F);
+            CROWBAR.addAttribute(Material.STEEL, Attribute.ATTACK_SPEED, -deniz);
             //change damage and build
             CROWBAR.addAttribute(Material.THAUMIUM, Attribute.ATTACK_SPEED, -2.6F);
             CROWBAR.addAttribute(Material.VOID, Attribute.ATTACK_SPEED, -2.5F);
@@ -80,7 +80,7 @@ public class ItemMaterials {
         ATTACK_DAMAGE
     }
     //change damage and build
-    public static ToolMaterial STEEL_TOOL = EnumHelper.addToolMaterial("RAILCRAFT_STEEL", 2, 500, 7, 11F, 9);
+    public static ToolMaterial STEEL_TOOL = EnumHelper.addToolMaterial("RAILCRAFT_STEEL", 2, 500, 7  , 11F, 9);
     public static ToolMaterial DUMMY = EnumHelper.addToolMaterial("DUMMY", 0, 0, 0, 0, 0);
 
     //TODO: texture?
