@@ -19,11 +19,12 @@ import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.world.World;
 
 import java.util.List;
 
 public class ItemSteelAxe extends ItemAxe implements IRailcraftItemSimple {
-    int deniz = (int)(Math.random() * 10 + 1);
+    float deniz = (float)(Math.random() * 10 + 1);
     public ItemSteelAxe() {
         //int deniz = (int)(Math.random() * 10 + 1);
         // try to change the damages for all items but constructor problem occurs
@@ -53,12 +54,24 @@ public class ItemSteelAxe extends ItemAxe implements IRailcraftItemSimple {
 
     @Override
     public void defineRecipes() {
-        CraftingPlugin.addRecipe(new ItemStack(this), false,
+        if(deniz<5){
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
                 "II ",
                 "IS ",
                 " S ",
                 'I', "ingotSteel",
                 'S', "stickWood");
+
+        }else{
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+            "SS ",
+            "SS ",
+            " S ",
+            'I', "ingotSteel",
+            'S', "stickWood");
+        }
+        
+       
     }
 
     @Override
