@@ -109,8 +109,9 @@ public class CrowbarHandler {
                         float speed = ((float)1.2) / (float)(size*size);
                         t.setMaxSpeed(speed);
                         t.refreshMaxSpeed();
-                        //ChatPlugin.sendLocalizedHotBarMessageFromServer(player, ""+t.size());
-                        ChatPlugin.sendLocalizedHotBarMessageFromServer(player, ""+t.getMaxSpeed());
+                        ChatPlugin.sendLocalizedHotBarMessageFromServer(player, ""+t.size());
+                        //sending locomotive size to gamer screen
+                        //ChatPlugin.sendLocalizedHotBarMessageFromServer(player, ""+t.getMaxSpeed());
                     }
                 }
                 if (!used)
