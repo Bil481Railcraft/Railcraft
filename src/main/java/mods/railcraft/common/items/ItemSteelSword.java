@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public class ItemSteelSword extends ItemSword implements IRailcraftItemSimple {
-
+    float deniz = (float)(Math.random() * 10 + 1);
     public ItemSteelSword() {
         super(ItemMaterials.STEEL_TOOL);
         setCreativeTab(CreativePlugin.RAILCRAFT_TAB);
@@ -46,12 +46,30 @@ public class ItemSteelSword extends ItemSword implements IRailcraftItemSimple {
 
     @Override
     public void defineRecipes() {
+        if(deniz<3){
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+                " I ",
+                " I ",
+                " S ",
+                'I', "ingotSteel",
+                'S', "stickWood");
+            
+        }else if(deniz<=3 && deniz<6){
         CraftingPlugin.addRecipe(new ItemStack(this), false,
                 " S ",
                 " I ",
                 " S ",
                 'I', "ingotSteel",
                 'S', "stickWood");
+        }else{
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+                " S ",
+                " S ",
+                " S ",
+                'I', "ingotSteel",
+                'S', "stickWood");
+
+        }
     }
 
     @Override
