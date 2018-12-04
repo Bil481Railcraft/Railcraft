@@ -63,10 +63,15 @@ public class TrackKitPriming extends TrackKitPowered implements IGuiReturnHandle
     @Override
     public void onMinecartPass(EntityMinecart cart) {
         if (isPowered()) {
-            if (cart instanceof IExplosiveCart) {
+            if (cart instanceof IExplosiveCart&&theWorld().isRaining()) {
                 IExplosiveCart tnt = (IExplosiveCart) cart;
                 tnt.setFuse(fuse);
                 tnt.setPrimed(true);
+            }
+            else{
+                IExplosiveCart tnt = (IExplosiveCart) cart;
+                tnt.setFuse(0);
+                tnt.setPrimed(false);
             }
         }
     }
