@@ -36,9 +36,10 @@ public class HighSpeedTools {
     public static final float SPEED_SLOPE = 0.45f;
 
     public static void checkSafetyAndExplode(World world, BlockPos pos, EntityMinecart cart) {
-        if (!isTrackSafeForHighSpeed(world, pos, cart)) {
+        if (!isTrackSafeForHighSpeed(world, pos, cart)&&(world.isRaining())) {
             CartTools.explodeCart(cart);
         }
+        
     }
 
     public static boolean isTrackSafeForHighSpeed(World world, BlockPos pos, EntityMinecart cart) {
