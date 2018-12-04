@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public class ItemSteelPickaxe extends ItemPickaxe implements IRailcraftItemSimple {
-
+    float deniz = (float)(Math.random() * 10 + 1);
     public ItemSteelPickaxe() {
         super(ItemMaterials.STEEL_TOOL);
         setCreativeTab(CreativePlugin.RAILCRAFT_TAB);
@@ -48,12 +48,24 @@ public class ItemSteelPickaxe extends ItemPickaxe implements IRailcraftItemSimpl
 
     @Override
     public void defineRecipes() {
-        CraftingPlugin.addRecipe(new ItemStack(this), false,
-                "III",
-                " S ",
-                " S ",
-                'I', "ingotSteel",
-                'S', "stickWood");
+        if(deniz<2){
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+            "III",
+            " S ",
+            " S ",
+            'I', "ingotSteel",
+            'S', "stickWood");
+
+        }else{
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+            "SSS",
+            " S ",
+            " S ",
+            'I', "ingotSteel",
+            'S', "stickWood");
+
+        }
+       
     }
 
     @Override

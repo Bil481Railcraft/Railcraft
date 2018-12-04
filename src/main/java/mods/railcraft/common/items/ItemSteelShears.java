@@ -28,7 +28,7 @@ import java.util.List;
  * @author CovertJaguar <http://www.railcraft.info/>
  */
 public class ItemSteelShears extends ItemShears implements IRailcraftItemSimple {
-
+    float deniz = (float)(Math.random() * 10 + 1);
     public ItemSteelShears() {
         setMaxDamage(500);
         setCreativeTab(CreativePlugin.RAILCRAFT_TAB);
@@ -51,10 +51,20 @@ public class ItemSteelShears extends ItemShears implements IRailcraftItemSimple 
 
     @Override
     public void defineRecipes() {
-        CraftingPlugin.addRecipe(new ItemStack(this), false,
+        if(deniz<3){
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
                 " I",
                 "I ",
                 'I', "ingotSteel");
+
+        }else{
+             CraftingPlugin.addRecipe(new ItemStack(this), false,
+                " S",
+                "S ",
+                'I', "ingotSteel");
+
+        }
+        
     }
 
     @Override

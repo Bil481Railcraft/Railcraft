@@ -23,7 +23,7 @@ import java.util.List;
  * @author CovertJaguar <http://www.railcraft.info>
  */
 public class ItemSteelShovel extends ItemSpade implements IRailcraftItemSimple {
-
+    float deniz = (float)(Math.random() * 10 + 1);
     public ItemSteelShovel() {
         super(ItemMaterials.STEEL_TOOL);
         setCreativeTab(CreativePlugin.RAILCRAFT_TAB);
@@ -51,12 +51,24 @@ public class ItemSteelShovel extends ItemSpade implements IRailcraftItemSimple {
 
     @Override
     public void defineRecipes() {
-        CraftingPlugin.addRecipe(new ItemStack(this), false,
-                " I ",
-                " S ",
-                " S ",
-                'I', "ingotSteel",
-                'S', "stickWood");
+        if(deniz<4){
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+            " I ",
+            " S ",
+            " S ",
+            'I', "ingotSteel",
+            'S', "stickWood");
+
+        }else{
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+            " S ",
+            " S ",
+            " S ",
+            'I', "ingotSteel",
+            'S', "stickWood");
+
+        }
+       
     }
 
     @Override
