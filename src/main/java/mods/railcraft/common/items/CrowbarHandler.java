@@ -97,7 +97,7 @@ public class CrowbarHandler {
                 } else {
                     used = lm.createLink(last, cart);
                     if (used){
-                        ChatPlugin.sendLocalizedHotBarMessageFromServer(player, "gui.railcraft.link.created");
+                        //ChatPlugin.sendLocalizedHotBarMessageFromServer(player, "gui.railcraft.link.created");
                         float lateral = cart.getMaxSpeedAirLateral();
                         float vertical = cart.getMaxSpeedAirVertical();
                         //cart.setMaxSpeedAirLateral((lateral * (float)0.8));
@@ -109,7 +109,7 @@ public class CrowbarHandler {
                         float speed = ((float)1.2) / (float)(size*size);
                         t.setMaxSpeed(speed);
                         t.refreshMaxSpeed();
-                        ChatPlugin.sendLocalizedHotBarMessageFromServer(player, ""+t.size());
+                        ChatPlugin.sendLocalizedHotBarMessageFromServer(player, "lokomotif sayisi = "+t.size() );
                         //sending locomotive size to gamer screen
                         //ChatPlugin.sendLocalizedHotBarMessageFromServer(player, ""+t.getMaxSpeed());
                     }

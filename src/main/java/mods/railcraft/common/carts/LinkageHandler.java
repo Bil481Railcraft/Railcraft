@@ -211,7 +211,7 @@ public class LinkageHandler {
 
         Train train = Train.getTrain(cart);
         if (train.size() == 1)
-            train.setMaxSpeed(1.2f);
+            train.setMaxSpeed(3.2f);
         else if (train.isTrainEnd(cart))
             train.refreshMaxSpeed();
 
