@@ -34,7 +34,7 @@ public class HighSpeedTools {
     public static final float SPEED_CUTOFF = 0.39f;
     public static final int LOOK_AHEAD_DIST = 2;
     public static final float SPEED_SLOPE = 0.45f;
-
+    //Yagmur yagiyorsa rayın bozulmasindan dolayi patlamasi lazim.
     public static void checkSafetyAndExplode(World world, BlockPos pos, EntityMinecart cart) {
         if (!isTrackSafeForHighSpeed(world, pos, cart)&&(world.isRaining())) {
             CartTools.explodeCart(cart);
@@ -66,19 +66,19 @@ public class HighSpeedTools {
         }
         return false;
     }
-
+    //Yagmur yagdiginda raylar bozulacagindan high speed'e capable olmasi lazim.
     private static boolean isTrackHighSpeedCapable(World world, BlockPos pos) {
-        return !world.isBlockLoaded(pos) || isHighSpeedTrackAt(world, pos);
+        return !world.isBlockLoaded(pos) || isHighSpeedTrackAt(world, pos)||!(world.isRaining());
     }
 
     private static void limitSpeed(EntityMinecart cart) {
         cart.motionX = Math.copySign(Math.min(SPEED_CUTOFF, Math.abs(cart.motionX)), cart.motionX);
         cart.motionZ = Math.copySign(Math.min(SPEED_CUTOFF, Math.abs(cart.motionZ)), cart.motionZ);
     }
-
+    //Yagmur yagiyorsa ve ray high speed destekliyorsa patla.
     public static void performHighSpeedChecks(World world, BlockPos pos, EntityMinecart cart, @Nullable TrackKit trackKit) {
         boolean highSpeed = CartTools.isTravellingHighSpeed(cart);
-        if (highSpeed) {
+        if (highSpeed&&(world.isRaining())) {
             checkSafetyAndExplode(world, pos, cart);
         } else if (trackKit == TrackKits.BOOSTER.getTrackKit() || trackKit == TrackKits.HIGH_SPEED_TRANSITION.getTrackKit()) {
             if (isTrackSafeForHighSpeed(world, pos, cart)) {
