@@ -135,17 +135,26 @@ public abstract class ItemCrowbar extends ItemTool implements IToolCrowbar, IBox
 
         if (isBannedRotation(blockState.getBlock().getClass()))
             return EnumActionResult.PASS;
-
-        if (blockState.getBlock().rotateBlock(world, pos, facing)) {
-            player.swingArm(hand);
-            stack.damageItem(1, player);
-            return EnumActionResult.SUCCESS;
+        if(world.isDaytime()){
+            if (blockState.getBlock().rotateBlock(world, pos, facing)) {
+                player.swingArm(hand);
+                stack.damageItem(1, player);
+                return EnumActionResult.SUCCESS;
+            }
+        }if ( ! world.isDaytime() ){
+            if (blockState.getBlock().rotateBlock(world, pos, facing)) {
+                player.swingArm(hand);
+                stack.damageItem(3, player);
+                return EnumActionResult.SUCCESS;
+            }
         }
+    
         return EnumActionResult.PASS;
     }
 
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase entityLiving) {
+        
         if (!world.isRemote)
             if (entityLiving instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) entityLiving;
