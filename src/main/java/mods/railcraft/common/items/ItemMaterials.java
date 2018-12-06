@@ -25,6 +25,7 @@ import java.util.Map;
  */
 public class ItemMaterials {
     static float deniz = (float)(Math.random() * 10 + 1);
+    static float denizspeed = (float)(Math.random() * 5 + 1);
     enum Tool {
         CROWBAR,
         SPIKE_MAUL;
@@ -42,7 +43,8 @@ public class ItemMaterials {
             SPIKE_MAUL.addAttribute(Material.IRON, Attribute.ATTACK_DAMAGE, 11F);
 
             SPIKE_MAUL.addAttribute(Material.IRON, Attribute.ATTACK_SPEED, -3.5F);
-            SPIKE_MAUL.addAttribute(Material.STEEL, Attribute.ATTACK_SPEED, -3.4F);
+                //change speed for steel items
+            SPIKE_MAUL.addAttribute(Material.STEEL, Attribute.ATTACK_SPEED, -denizspeed);
             SPIKE_MAUL.addAttribute(Material.DIAMOND, Attribute.ATTACK_SPEED, -3.1F);
         }
 
