@@ -8,9 +8,13 @@
  */
 package mods.railcraft.common.carts;
 
+import java.util.ArrayList;
+
+import mods.railcraft.common.core.RailcraftConfig;
 import mods.railcraft.common.core.RailcraftConstants;
 import mods.railcraft.common.plugins.forge.CraftingPlugin;
 import mods.railcraft.common.plugins.forge.OreDictPlugin;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 

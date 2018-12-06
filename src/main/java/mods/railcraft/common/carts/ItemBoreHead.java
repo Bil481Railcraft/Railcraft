@@ -12,14 +12,18 @@ package mods.railcraft.common.carts;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+
 import mods.railcraft.api.carts.bore.IBoreHead;
+import mods.railcraft.common.core.RailcraftConfig;
 import mods.railcraft.common.items.IRailcraftItemSimple;
 import mods.railcraft.common.items.ItemMaterials;
 import mods.railcraft.common.plugins.forge.CreativePlugin;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

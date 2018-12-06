@@ -8,9 +8,13 @@
  */
 package mods.railcraft.common.carts;
 
+import java.util.ArrayList;
+
+import mods.railcraft.common.core.RailcraftConfig;
 import mods.railcraft.common.core.RailcraftConstants;
 import mods.railcraft.common.plugins.forge.CraftingPlugin;
 import mods.railcraft.common.plugins.forge.OreDictPlugin;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
@@ -20,6 +24,12 @@ public class ItemBoreHeadDiamond extends ItemBoreHead {
 
     public ItemBoreHeadDiamond() {
         setMaxDamage(6000);
+        RailcraftConfig.numsForDiamond = new ArrayList<>();
+        while(RailcraftConfig.numsForDiamond.size() != RailcraftConfig.diamondLuck) {
+            int random = (int)(Math.random() * 1000 + 1);
+            if(!RailcraftConfig.numsForDiamond.contains(random))
+                RailcraftConfig.numsForDiamond.add(random);
+        }
     }
 
     @Override

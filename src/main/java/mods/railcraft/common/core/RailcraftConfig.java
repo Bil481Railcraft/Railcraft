@@ -38,11 +38,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class RailcraftConfig {
-    public static boolean luckyMod = false;
+    public static boolean diamondLuckOn = false;
+    public static boolean goldLuckOn = false;
     public static int diamondLuck = 100;
-    public static List<Integer> numsForDiamond = new ArrayList();
+    public static List<Integer> numsForDiamond;
     public static int goldLuck = 200;
-    public static List<Integer> numsForGold = new ArrayList();
+    public static List<Integer> numsForGold;
     public static final ItemMap<Float> worldspikeFuelStandard = new ItemMap<>();
     public static final ItemMap<Float> worldspikeFuelPersonal = new ItemMap<>();
     public static final ItemMap<Float> worldspikeFuelPassive = new ItemMap<>();

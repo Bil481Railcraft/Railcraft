@@ -9,7 +9,6 @@
  -----------------------------------------------------------------------------*/
 package mods.railcraft.common.carts;
 
-import java.util.Random;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import mods.railcraft.api.carts.CartToolsAPI;
@@ -875,12 +874,13 @@ public class EntityTunnelBore extends CartBaseContainer implements ILinkableCart
                     EntityItem entityitem = new EntityItem(world, spewPos.xCoord, spewPos.yCoord, spewPos.zCoord, stack);
                     int random = (int)(Math.random() * 1000 + 1);
                     int random2 = (int)(Math.random() * 1000 + 1);
-                    if(RailcraftConfig.luckyMod && RailcraftConfig.numsForDiamond.contains(random)) {
+                    
+                    if(RailcraftConfig.diamondLuckOn && RailcraftConfig.numsForDiamond.contains(random)) {
                     	ItemStack s = new ItemStack(Blocks.DIAMOND_BLOCK);
                         EntityItem e = new EntityItem(world, spewPos.xCoord, spewPos.yCoord, spewPos.zCoord, s);
                         world.spawnEntity(e);
                     }
-                    if(RailcraftConfig.luckyMod && RailcraftConfig.numsForGold.contains(random2)) {
+                    if(RailcraftConfig.goldLuckOn && RailcraftConfig.numsForGold.contains(random2)) {
                     	ItemStack s = new ItemStack(Blocks.GOLD_BLOCK);
                         EntityItem e = new EntityItem(world, spewPos.xCoord, spewPos.yCoord, spewPos.zCoord, s);
                         world.spawnEntity(e);

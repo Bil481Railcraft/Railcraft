@@ -8,6 +8,7 @@
  */
 package mods.railcraft.common.commands;
 
+import mods.railcraft.common.core.RailcraftConfig;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityMinecart;
@@ -23,9 +24,78 @@ public class CommandAdmin extends SubCommand {
     public CommandAdmin() {
         super("admin");
         addChildCommand(new CommandAdminKill());
+        addChildCommand(new LuckyMod());
         setPermLevel(PermLevel.ADMIN);
     }
-
+    
+    private static class LuckyMod extends SubCommand {
+    	public LuckyMod() {
+    		super("luckymod");
+    		addChildCommand(new GoldLuck());
+    		addChildCommand(new DiamondLuck());
+    		setPermLevel(PermLevel.ADMIN);
+    	}
+    }
+    
+    private static class GoldLuck extends SubCommand {
+    	public GoldLuck() {
+    		super("goldluck");
+    		setPermLevel(PermLevel.ADMIN);
+    		addChildCommand(new GoldLuckOn());
+    		addChildCommand(new GoldLuckOff());
+    	}
+    }
+    private static class GoldLuckOn extends SubCommand {
+    	public GoldLuckOn() {
+    		super("on");
+    		setPermLevel(PermLevel.ADMIN);
+    	}
+    	
+    	 public void executeSubCommand(MinecraftServer server, ICommandSender sender, String[] args) {
+    		 RailcraftConfig.goldLuckOn = true;
+    	 }
+    }
+    
+    private static class GoldLuckOff extends SubCommand {
+    	public GoldLuckOff() {
+    		super("off");
+    		setPermLevel(PermLevel.ADMIN);
+    	}
+    	
+    	 public void executeSubCommand(MinecraftServer server, ICommandSender sender, String[] args) {
+    		 RailcraftConfig.goldLuckOn = false;
+    	 }
+    }
+    
+    private static class DiamondLuck extends SubCommand {
+    	public DiamondLuck() {
+    		super("diamondluck");
+    		setPermLevel(PermLevel.ADMIN);
+    		addChildCommand(new DiamondLuckOn());
+    		addChildCommand(new DiamondLuckOff());
+    	}
+    }
+    
+    private static class DiamondLuckOn extends SubCommand {
+    	public DiamondLuckOn() {
+    		super("on");
+    		setPermLevel(PermLevel.ADMIN);
+    	}
+    	 public void executeSubCommand(MinecraftServer server, ICommandSender sender, String[] args) {
+    		 RailcraftConfig.diamondLuckOn = true;
+    	 }
+    }
+    
+    private static class DiamondLuckOff extends SubCommand {
+    	public DiamondLuckOff() {
+    		super("off");
+    		setPermLevel(PermLevel.ADMIN);
+    	}
+    	 public void executeSubCommand(MinecraftServer server, ICommandSender sender, String[] args) {
+    		 RailcraftConfig.diamondLuckOn = false;
+    	 }
+    }
+    
     private static class CommandAdminKill extends SubCommand {
         private CommandAdminKill() {
             super("kill");
