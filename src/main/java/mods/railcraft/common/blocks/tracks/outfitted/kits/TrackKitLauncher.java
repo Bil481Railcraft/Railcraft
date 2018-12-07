@@ -10,6 +10,7 @@
 package mods.railcraft.common.blocks.tracks.outfitted.kits;
 
 import mods.railcraft.api.core.items.IToolCrowbar;
+import mods.railcraft.api.tracks.ITrackKitPowered;
 import mods.railcraft.common.blocks.tracks.outfitted.TrackKits;
 import mods.railcraft.common.core.RailcraftConfig;
 import mods.railcraft.common.gui.EnumGui;
@@ -23,7 +24,9 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -36,6 +39,9 @@ public class TrackKitLauncher extends TrackKitPowered implements IGuiReturnHandl
     public static final int MIN_LAUNCH_FORCE = 5;
     private static final float LAUNCH_THRESHOLD = 0.01f;
     private byte launchForce = 5;
+    
+    public static int series = 0;
+    //Bu degisken ardý ardýna kac adet trackten gectigini tutar.
 
     @Nullable
     @Override
@@ -60,11 +66,11 @@ public class TrackKitLauncher extends TrackKitPowered implements IGuiReturnHandl
         }
         return false;
     }
-
-    @Override
-    public void onMinecartPass(EntityMinecart cart) {
-        if (isPowered()) {
-            //getPowerItem();
+    
+    public void onMinecartPass(EntityMinecart cart, World world, BlockPos pos) {
+    	int redstonepov = world.isBlockIndirectlyGettingPowered(pos);
+    	if (isPowered()) {
+        	series++;
             if (Math.abs(cart.motionX) > LAUNCH_THRESHOLD) {
                 cart.motionX = Math.copySign(0.6f, cart.motionX);
             }
@@ -74,12 +80,33 @@ public class TrackKitLauncher extends TrackKitPowered implements IGuiReturnHandl
             cart.setMaxSpeedAirLateral(0.6f);
             cart.setMaxSpeedAirVertical(0.5f);
             cart.setDragAir(0.99999);
-            cart.motionY = getLaunchForce() * 0.1 * Math.random();
+            cart.motionY = getLaunchForce() * 0.1 *  redstonepov;//* series;
+            series = 0;
             cart.getEntityData().setInteger("Launched", 1);
             cart.setCanUseRail(false);
             cart.move(cart.motionX, 1.5, cart.motionZ);
-        }
+    	}
     }
+    
+    public boolean getNextTrack(World world) {
+    	
+    	//Eger baska railtrack var ise ilerisinde zýplatmamasý icin
+    	BlockPos pos = getPos();
+    	BlockPos pos1 = new BlockPos(pos.getX()+1,pos.getY(),pos.getZ());
+    	BlockPos pos2 = new BlockPos(pos.getX()-1,pos.getY(),pos.getZ());
+    	BlockPos pos3 = new BlockPos(pos.getX(),pos.getY(),pos.getZ()+1);
+    	BlockPos pos4 = new BlockPos(pos.getX(),pos.getY(),pos.getZ()-1);
+    	TileEntity t1 = world.getTileEntity(pos1);
+    	TileEntity t2 = world.getTileEntity(pos2);
+    	TileEntity t3 = world.getTileEntity(pos3);
+    	TileEntity t4 = world.getTileEntity(pos4);
+    	if ((t1 instanceof ITrackKitPowered)||(t2 instanceof ITrackKitPowered)||(t3 instanceof ITrackKitPowered)||
+    			(t4 instanceof ITrackKitPowered))
+    			return true;
+    	//Else
+    	return false;
+    };
+   
 
     @Override
     public void writeToNBT(NBTTagCompound data) {

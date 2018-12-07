@@ -12,6 +12,7 @@ package mods.railcraft.common.blocks.tracks.outfitted.kits;
 import mods.railcraft.common.blocks.tracks.outfitted.TrackKits;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class TrackKitActivator extends TrackKitPowered {
 
@@ -32,4 +33,10 @@ public class TrackKitActivator extends TrackKitPowered {
     public int getPowerPropagation() {
         return POWER_PROPAGATION;
     }
+    /*
+	@Override
+	public void onMinecartPass(EntityMinecart cart, World world, BlockPos pos) {
+		// TODO Auto-generated method stub
+		
+	}*/
 }

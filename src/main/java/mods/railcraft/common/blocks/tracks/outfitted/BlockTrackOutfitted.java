@@ -21,6 +21,7 @@ import mods.railcraft.common.blocks.tracks.TrackShapeHelper;
 import mods.railcraft.common.blocks.tracks.TrackTools;
 import mods.railcraft.common.blocks.tracks.behaivor.TrackSupportTools;
 import mods.railcraft.common.blocks.tracks.behaivor.TrackTypes;
+import mods.railcraft.common.blocks.tracks.outfitted.kits.TrackKitLauncher;
 import mods.railcraft.common.core.Railcraft;
 import mods.railcraft.common.plugins.forge.CraftingPlugin;
 import mods.railcraft.common.plugins.forge.CreativePlugin;
@@ -348,7 +349,10 @@ public class BlockTrackOutfitted extends BlockTrackTile implements IPostConnecti
         if (tile instanceof TileTrackOutfitted) {
             TileTrackOutfitted track = (TileTrackOutfitted) tile;
             getTrackType(world, pos).getEventHandler().onMinecartPass(world, cart, pos, track.getTrackKitInstance().getTrackKit());
-            track.getTrackKitInstance().onMinecartPass(cart);
+            if(!(track.getTrackKitInstance() instanceof TrackKitLauncher))
+            	track.getTrackKitInstance().onMinecartPass(cart);
+            else
+            	((TrackKitLauncher)track.getTrackKitInstance()).onMinecartPass(cart,world, pos);
         }
     }
 
