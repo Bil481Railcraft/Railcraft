@@ -52,6 +52,7 @@ public class ItemSteelShovel extends ItemSpade implements IRailcraftItemSimple {
 
     @Override
     public void defineRecipes() {
+      
        if( RailcraftConfig.denizcraftingmode ){
         
             CraftingPlugin.addRecipe(new ItemStack(this), false,
