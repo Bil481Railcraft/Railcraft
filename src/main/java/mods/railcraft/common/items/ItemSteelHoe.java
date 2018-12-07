@@ -46,6 +46,7 @@ public class ItemSteelHoe extends ItemHoe implements IRailcraftItemSimple {
 
     @Override
     public void defineRecipes() {
+        
         if(deniz<3){
 
             CraftingPlugin.addRecipe(new ItemStack(this), false,
