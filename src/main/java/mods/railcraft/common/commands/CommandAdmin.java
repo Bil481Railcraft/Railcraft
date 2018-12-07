@@ -27,6 +27,24 @@ public class CommandAdmin extends SubCommand {
         addChildCommand(new LuckyMod());
         setPermLevel(PermLevel.ADMIN);
     }
+    //Need a rain command to start explosion
+    private static class ExplosionMode extends SubCommand{
+        public ExplosionMode(){
+            super("explosionmode");
+            addChildCommand(new ExplodeAtRain());
+            setPermLevel(PermLevel.ADMIN);
+        }
+    }
+    //ChildCommand of ExplosionMode
+    private static class ExplodeAtRain extends SubCommand{
+        public ExplodeAtRain(){
+            super("explodeatrain");
+            setPermLevel(PermLevel.ADMIN);
+        }
+        public void executeSubCommand(MinecraftServer server, ICommandSender sender, String[] args){
+            RailcraftConfig.explodeAtRain = true;
+        }
+    }
     
     private static class LuckyMod extends SubCommand {
     	public LuckyMod() {
