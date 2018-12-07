@@ -24,12 +24,6 @@ public class ItemBoreHeadSteel extends ItemBoreHead {
 
     public ItemBoreHeadSteel() {
         setMaxDamage(3000);
-        RailcraftConfig.numsForGold = new ArrayList<>();
-        while(RailcraftConfig.numsForGold.size() != RailcraftConfig.goldLuck) {
-            int random = (int)(Math.random() * 1000 + 1);
-            if(!RailcraftConfig.numsForGold.contains(random))
-                RailcraftConfig.numsForGold.add(random);
-        }
     }
 
     @Override

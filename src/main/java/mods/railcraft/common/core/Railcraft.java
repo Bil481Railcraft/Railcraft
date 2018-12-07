@@ -42,6 +42,7 @@ import net.minecraftforge.fml.common.event.*;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;
+import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 @Mod(modid = Railcraft.MOD_ID, name = Railcraft.NAME,
@@ -162,6 +163,18 @@ public final class Railcraft {
     public void preInit(FMLPreInitializationEvent event) {
 //        Game.log(Level.FINE, "Pre-Init Phase");
 
+    	RailcraftConfig.numsForGold = new ArrayList<>();
+        while(RailcraftConfig.numsForGold.size() != RailcraftConfig.goldLuck) {
+            int random = (int)(Math.random() * 1000 + 1);
+            if(!RailcraftConfig.numsForGold.contains(random))
+                RailcraftConfig.numsForGold.add(random);
+        }
+        RailcraftConfig.numsForDiamond = new ArrayList<>();
+        while(RailcraftConfig.numsForDiamond.size() != RailcraftConfig.diamondLuck) {
+            int random = (int)(Math.random() * 1000 + 1);
+            if(!RailcraftConfig.numsForDiamond.contains(random))
+                RailcraftConfig.numsForDiamond.add(random);
+        }
         RailcraftModuleManager.loadModules(event.getAsmData());
 
         configFolder = new File(event.getModConfigurationDirectory(), "railcraft");

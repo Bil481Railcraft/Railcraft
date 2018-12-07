@@ -24,12 +24,6 @@ public class ItemBoreHeadDiamond extends ItemBoreHead {
 
     public ItemBoreHeadDiamond() {
         setMaxDamage(6000);
-        RailcraftConfig.numsForDiamond = new ArrayList<>();
-        while(RailcraftConfig.numsForDiamond.size() != RailcraftConfig.diamondLuck) {
-            int random = (int)(Math.random() * 1000 + 1);
-            if(!RailcraftConfig.numsForDiamond.contains(random))
-                RailcraftConfig.numsForDiamond.add(random);
-        }
     }
 
     @Override
