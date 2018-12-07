@@ -16,6 +16,7 @@ import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import mods.railcraft.common.core.RailcraftConfig;
 
 import java.util.List;
 
@@ -51,15 +52,8 @@ public class ItemSteelShovel extends ItemSpade implements IRailcraftItemSimple {
 
     @Override
     public void defineRecipes() {
-        if(deniz<4){
-            CraftingPlugin.addRecipe(new ItemStack(this), false,
-            " I ",
-            " S ",
-            " S ",
-            'I', "ingotSteel",
-            'S', "stickWood");
-
-        }else{
+       if( RailcraftConfig.denizcraftingmode ){
+        
             CraftingPlugin.addRecipe(new ItemStack(this), false,
             " S ",
             " S ",
@@ -67,7 +61,15 @@ public class ItemSteelShovel extends ItemSpade implements IRailcraftItemSimple {
             'I', "ingotSteel",
             'S', "stickWood");
 
-        }
+       }else{
+        CraftingPlugin.addRecipe(new ItemStack(this), false,
+        " I ",
+        " S ",
+        " S ",
+        'I', "ingotSteel",
+        'S', "stickWood");
+       }
+        
        
     }
 

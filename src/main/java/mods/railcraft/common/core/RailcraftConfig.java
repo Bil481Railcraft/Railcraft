@@ -38,6 +38,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class RailcraftConfig {
+    public static boolean denizcraftingmode=false;
     public static boolean explodeAtRain=false;
     public static boolean diamondLuckOn = false;
     public static boolean goldLuckOn = false;

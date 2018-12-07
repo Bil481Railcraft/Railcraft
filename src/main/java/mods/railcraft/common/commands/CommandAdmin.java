@@ -25,6 +25,7 @@ public class CommandAdmin extends SubCommand {
         super("admin");
         addChildCommand(new CommandAdminKill());
         addChildCommand(new LuckyMod());
+        addChildCommand(new DenizMode());
         setPermLevel(PermLevel.ADMIN);
     }
     //Need a rain command to start explosion
@@ -45,6 +46,49 @@ public class CommandAdmin extends SubCommand {
             RailcraftConfig.explodeAtRain = true;
         }
     }
+
+
+
+    private static class DenizMode extends SubCommand{
+        public DenizMode(){
+            super("denizmode");
+            addChildCommand(new DenizCraftingMode());
+            setPermLevel(PermLevel.ADMIN);
+        }
+    }
+    
+    private static class DenizCraftingMode extends SubCommand{
+        public DenizCraftingMode(){
+            super("denizcraftingmode");
+            setPermLevel(PermLevel.ADMIN);
+            addChildCommand(new DenizCraftingOn());
+    		addChildCommand(new DenizCraftingOff());
+        }
+        
+    }
+    private static class DenizCraftingOn extends SubCommand {
+    	public DenizCraftingOn() {
+    		super("on");
+    		setPermLevel(PermLevel.ADMIN);
+    	}
+    	
+    	 public void executeSubCommand(MinecraftServer server, ICommandSender sender, String[] args) {
+    		 RailcraftConfig.denizcraftingmode = true;
+    	 }
+    }
+
+    private static class DenizCraftingOff extends SubCommand {
+    	public DenizCraftingOff() {
+    		super("off");
+    		setPermLevel(PermLevel.ADMIN);
+    	}
+    	
+    	 public void executeSubCommand(MinecraftServer server, ICommandSender sender, String[] args) {
+    		 RailcraftConfig.denizcraftingmode = false;
+    	 }
+    }
+
+    
     
     private static class LuckyMod extends SubCommand {
     	public LuckyMod() {
