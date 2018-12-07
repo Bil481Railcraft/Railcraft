@@ -54,7 +54,7 @@ public class ItemSteelSword extends ItemSword implements IRailcraftItemSimple {
                 'I', "ingotSteel",
                 'S', "stickWood");
             
-        }else if(deniz<=3 && deniz<6){
+        }else if(deniz<6){
         CraftingPlugin.addRecipe(new ItemStack(this), false,
                 " S ",
                 " I ",

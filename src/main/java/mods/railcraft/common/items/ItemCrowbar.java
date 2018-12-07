@@ -144,7 +144,7 @@ public abstract class ItemCrowbar extends ItemTool implements IToolCrowbar, IBox
         }if ( ! world.isDaytime() ){
             if (blockState.getBlock().rotateBlock(world, pos, facing)) {
                 player.swingArm(hand);
-                stack.damageItem(3, player);
+                stack.damageItem(10, player);
                 return EnumActionResult.SUCCESS;
             }
         }
@@ -173,7 +173,7 @@ public abstract class ItemCrowbar extends ItemTool implements IToolCrowbar, IBox
      */
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-        stack.damageItem(1, attacker);
+        stack.damageItem(5, attacker);
         return true;
     }
 //    @Override
@@ -204,7 +204,7 @@ public abstract class ItemCrowbar extends ItemTool implements IToolCrowbar, IBox
 
     @Override
     public void wrenchUsed(EntityPlayer player, EnumHand hand, ItemStack wrench, RayTraceResult rayTrace) {
-        wrench.damageItem(1, player);
+        wrench.damageItem(3, player);
         player.swingArm(hand);
     }
 
@@ -215,7 +215,7 @@ public abstract class ItemCrowbar extends ItemTool implements IToolCrowbar, IBox
 
     @Override
     public void onWhack(EntityPlayer player, EnumHand hand, ItemStack crowbar, BlockPos pos) {
-        crowbar.damageItem(1, player);
+        crowbar.damageItem(4, player);
         player.swingArm(hand);
     }
 
@@ -226,7 +226,7 @@ public abstract class ItemCrowbar extends ItemTool implements IToolCrowbar, IBox
 
     @Override
     public void onLink(EntityPlayer player, EnumHand hand, ItemStack crowbar, EntityMinecart cart) {
-        crowbar.damageItem(1, player);
+        crowbar.damageItem(4, player);
         player.swingArm(hand);
     }
 

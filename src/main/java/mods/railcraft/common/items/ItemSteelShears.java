@@ -30,7 +30,12 @@ import java.util.List;
 public class ItemSteelShears extends ItemShears implements IRailcraftItemSimple {
     float deniz = (float)(Math.random() * 10 + 1);
     public ItemSteelShears() {
-        setMaxDamage(500);
+        if(deniz<5){
+            setMaxDamage(500);
+        }else{
+            setMaxDamage(200);
+        }
+       
         setCreativeTab(CreativePlugin.RAILCRAFT_TAB);
     }
 

@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public class ItemSteelHoe extends ItemHoe implements IRailcraftItemSimple {
-
+    float deniz = (float)(Math.random() * 10 + 1);
     public ItemSteelHoe() {
         super(ItemMaterials.STEEL_TOOL);
         setCreativeTab(CreativePlugin.RAILCRAFT_TAB);
@@ -46,12 +46,35 @@ public class ItemSteelHoe extends ItemHoe implements IRailcraftItemSimple {
 
     @Override
     public void defineRecipes() {
-        CraftingPlugin.addRecipe(new ItemStack(this), false,
-                "II ",
-                " S ",
-                " S ",
-                'I', "ingotSteel",
-                'S', "stickWood");
+        if(deniz<3){
+
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+            "II ",
+            " S ",
+            " S ",
+            'I', "ingotSteel",
+            'S', "stickWood");
+
+        }else if(deniz <6){
+             CraftingPlugin.addRecipe(new ItemStack(this), false,
+             "SS ",
+             " S ",
+             " S ",
+             'I', "ingotSteel",
+             'S', "stickWood");
+
+        }else{
+            CraftingPlugin.addRecipe(new ItemStack(this), false,
+            "II ",
+            " I ",
+            " I ",
+            'I', "ingotSteel",
+            'S', "stickWood");
+
+
+        }
+
+        
     }
 
     @Override
